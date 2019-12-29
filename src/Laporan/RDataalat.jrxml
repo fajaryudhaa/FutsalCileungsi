@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6bb4b72a-5666-4228-a054-db30121b296d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="futsal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     alat.`kode` AS alat_kode,
+     alat.`nama` AS alat_nama,
+     alat.`harga` AS alat_harga,
+     pimpinan.`nama` AS pimpinan_nama
+FROM
+     `alat` alat,
+     `pimpinan` pimpinan]]>
+	</queryString>
+	<field name="alat_kode" class="java.lang.String"/>
+	<field name="alat_nama" class="java.lang.String"/>
+	<field name="alat_harga" class="java.lang.String"/>
+	<field name="pimpinan_nama" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="4f3bb0a7-0821-4ad4-905d-a1c4b2dd3cfc"/>
+				<staticText>
+					<reportElement x="168" y="46" width="425" height="20" forecolor="#FFFFFF" uuid="cb10d73d-ccd4-47fc-8d11-615a1b9c2e6e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Jl. Kota Taman Metropolitan No.62, Cileungsi Kidul, Cileungsi, Bogor, Jawa Barat 16820]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Title" x="2" y="0" width="438" height="66" uuid="d1a59d38-757a-4b42-885b-3decc62b8ec9"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Top">
+						<font size="36" isBold="false"/>
+					</textElement>
+					<text><![CDATA[METROPOLITAN FUTSAL CILEUNGSI]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="891b1ae7-36c5-421d-9cec-e86ba0c4460a"/>
+				<staticText>
+					<reportElement x="575" y="6" width="135" height="20" forecolor="#FFFFFF" uuid="cac05fbf-a6a3-4c37-afc2-39992ad62c62"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Laporan Data Alat]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="721" y="4" width="82" height="92" uuid="d03863aa-9590-4f79-ac65-ba03d8586626"/>
+				<imageExpression><![CDATA[$P{futsal}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="797" height="18" backcolor="#CCCCCC" uuid="ad80c40b-0987-4815-99de-e88a634344dd"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="265" height="18" forecolor="#000000" backcolor="#FFFF00" uuid="61a21bc5-5227-414a-85e9-a00b3f72997d"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kode Alat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="530" y="0" width="267" height="18" forecolor="#000000" backcolor="#FFFF00" uuid="84f9c92b-0705-4985-8856-3851a2ae0896"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Harga Alat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="265" y="0" width="265" height="18" forecolor="#000000" backcolor="#FFFF00" uuid="c89ca747-e297-4722-a468-b6fe906199aa"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Alat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="b095bf94-5b2d-4042-b0db-56ee883fd27d"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="265" y="0" width="265" height="18" uuid="4f9e3a93-1eb0-49cb-931a-d56bbda09373"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{alat_nama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="530" y="0" width="267" height="18" uuid="e01af6e9-17ce-4db3-873f-2b5d29e109b6"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{alat_harga}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="265" height="18" uuid="d407d53d-3154-4237-a332-0a1953f9a257"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{alat_kode}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="106" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="a0047744-c503-4085-b6ff-ab9f1e711c1f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="575" y="2" width="61" height="20" uuid="c84dbb53-2a3d-413e-a1f1-01f58dec060b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cileungsi,]]></text>
+			</staticText>
+			<textField pattern="EEEEE, dd MMMMM yyyy">
+				<reportElement x="636" y="3" width="121" height="20" uuid="5883c9d6-5f98-4672-bb25-11da53bc6a80"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="647" y="60" width="66" height="20" uuid="8fa76f7c-f01f-46f0-8334-f49d487383e2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pimpinan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="613" y="80" width="21" height="20" uuid="0272f3e1-b84a-480f-8aa1-e62c68e2fe3f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="725" y="80" width="21" height="20" uuid="cdcd6298-a824-4dd8-9f6b-e611e4c95aec"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="634" y="80" width="89" height="20" uuid="a15dad24-26de-4c0e-891e-5d7678507b7e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimpinan_nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="7948ed43-856a-4bdb-a749-a418c8e12f04"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="a4f81e3c-6081-414b-b95f-1d735ab4b86b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="b6c130be-741f-4848-b3aa-a96f419f5ad7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="fff675b8-b1a0-4e00-95ee-b2a16ba3dff8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

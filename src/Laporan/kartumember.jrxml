@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="408" pageHeight="235" orientation="Landscape" columnWidth="408" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a1fdfd32-87fc-4bfd-a006-a7679fe02bcb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TGL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="futsal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *
+FROM
+     `team` team
+WHERE
+     kode LIKE '%$P!{TGL}%']]>
+	</queryString>
+	<field name="kode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="notlp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="4" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="208" splitType="Stretch">
+			<staticText>
+				<reportElement x="172" y="29" width="86" height="20" uuid="45185656-7fe3-466c-99cf-ad95b0ce7352"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<text><![CDATA[Kode		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="29" width="129" height="20" uuid="e8d0ef2d-5e0b-414a-a7b9-60e96f5d5973"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="49" width="86" height="20" uuid="9a5a2110-7d6b-446a-b330-463931e34bc4"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<text><![CDATA[Nama		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="49" width="129" height="20" uuid="900a2887-b5d1-4c2f-9e6f-daba101e7a8d"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="69" width="86" height="20" uuid="6bbb98fc-28c5-4b2c-9e04-3ac078008c2a"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<text><![CDATA[Alamat	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="69" width="129" height="20" uuid="14b6debe-2916-4d89-91d7-048f5b7fe232"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="89" width="86" height="20" uuid="f8739a6e-698c-41da-9167-f918a36da354"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<text><![CDATA[No. Tlp	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="89" width="129" height="20" uuid="53961af4-bb76-4e2c-b986-76983c4808e8"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{notlp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="109" width="86" height="20" uuid="1d739580-0ce8-478d-abe1-081edec14ded"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<text><![CDATA[Status		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="109" width="129" height="20" uuid="b05e3110-d5d0-4264-b705-52fe6134746d"/>
+				<textElement>
+					<font fontName="Papyrus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="20" y="0" width="133" height="101" uuid="9e12d3cf-6494-4333-884f-0c9c032ef87e"/>
+				<imageExpression><![CDATA[$P{futsal}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="153" y="16" width="255" height="1" uuid="3dd07a29-6f26-4bb7-b14c-7c9d31a90734"/>
+			</line>
+			<line>
+				<reportElement x="0" y="151" width="408" height="1" uuid="5de7f132-6628-4bbe-aa76-3d903de21a59"/>
+			</line>
+			<textField pattern="EEEEE, dd MMMMM yyyy">
+				<reportElement x="273" y="170" width="121" height="20" uuid="0fb1126d-034d-44ef-9825-3d83174c2ba0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="170" width="133" height="20" uuid="61031e5c-0fa9-4d21-a131-ec9b2815b0f4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dikeluarkan Tanggal	:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="841" pageHeight="667" orientation="Landscape" columnWidth="801" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d31243eb-8292-42db-9575-f03156dcd80c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TGL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="futsal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     petugas.`nama` AS petugas_nama
+FROM
+     `booking` booking,
+     `petugas` petugas
+WHERE
+     nbooking LIKE '%$P!{TGL}%']]>
+	</queryString>
+	<field name="nbooking" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namateam" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namasewa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namalpg" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jammsk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jamkluar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="notlp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="petugas_nama" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="127" y="0" width="641" height="79" uuid="5bb9771d-e275-4013-964d-849e3133f3ee"/>
+				<textElement verticalAlignment="Middle">
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[METROPOLITAN FUTSAL CILEUNGSI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="46" y="10" width="82" height="92" uuid="34171b15-8100-4e59-9f9d-fea17a2aead5"/>
+				<imageExpression><![CDATA[$P{futsal}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="133" y="78" width="565" height="24" uuid="439d6921-5a5e-45f1-9560-b4f38b780122"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Jl. Kota Taman Metropolitan No.62, Cileungsi Kidul, Cileungsi, Bogor, Jawa Barat 16820]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="340" y="42" width="145" height="20" uuid="d422a3c6-e1fb-41df-906f-c90d2f5fc95d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BUKTI PEMESANAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="90" width="802" height="1" uuid="ad4e1a82-a86a-4f41-bb7d-13dc3b830d5f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="10" width="802" height="1" uuid="707b01d3-c230-4c12-989d-9d085860786e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="146" y="0" width="100" height="20" uuid="06537a1e-a3a1-4ffb-8110-cb20d818359c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nbooking}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="45" y="41" width="100" height="20" uuid="b2a79178-b7d7-481a-8364-ad6c9da85ffc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="41" width="100" height="20" uuid="ae42eb84-7ed0-42bf-b9b4-5b1c4acc53e1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="536" y="0" width="100" height="20" uuid="5f9f7f95-be22-4e70-8dfe-12822c154419"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Lapangan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="536" y="41" width="100" height="20" uuid="e568599f-2006-45bc-8477-02c699a19356"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Status         	    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="649" y="41" width="100" height="20" uuid="ca3aeaa1-6bcd-4244-b403-6f5991237821"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="649" y="0" width="100" height="20" uuid="b12e7041-9885-4e06-9350-1b4311541304"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namalpg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="46" y="0" width="100" height="20" uuid="a2dfeb78-5c7b-450e-9c5d-f1c9e9cdb351"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[No. Booking	:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="203" splitType="Stretch">
+			<textField>
+				<reportElement x="202" y="21" width="100" height="20" uuid="644a42e6-5551-4e62-97a3-cd25264bde06"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namateam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="84" y="21" width="100" height="20" uuid="92512ede-087e-4368-b2ab-17b5023f9544"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Team	    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="202" y="57" width="100" height="20" uuid="d099754b-f7e1-4712-8967-4665dab6b90f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namasewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="598" y="21" width="100" height="20" uuid="7c4d7c14-e5d2-4179-897b-c6036240652c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jammsk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="598" y="57" width="100" height="20" uuid="b4c3ad86-71ff-44d3-9ed1-d208f7000ff1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jamkluar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="84" y="57" width="118" height="20" uuid="e872dc00-3d64-4c67-ab9a-eafd02c12c0a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Penyewa  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="21" width="100" height="20" uuid="4fbef8ce-d42e-41f3-a0ba-099b9c219fa3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jam Masuk	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="57" width="100" height="20" uuid="aaeefd74-91dd-407d-a19d-5187ea5bcf3e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jam Keluar	:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="-6" width="802" height="1" uuid="7f0a58f2-8e5a-4bfe-bb2c-e2f59b5888d6"/>
+			</line>
+			<staticText>
+				<reportElement x="498" y="105" width="100" height="20" uuid="3d8ad2f4-bf95-468f-b526-1fc1e790bdff"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="622" y="105" width="100" height="20" uuid="3bca4926-9623-4f6a-a575-060c2f159ee1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="498" y="143" width="100" height="20" uuid="279172db-a538-40ff-a220-3bb7ed3013f5"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DP		:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="192" width="802" height="1" uuid="41384ee8-82bc-4c82-95e4-5486420e61e9"/>
+			</line>
+			<staticText>
+				<reportElement x="598" y="105" width="24" height="20" uuid="80eb133c-76fd-48c3-8d00-ced02fb972ac"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="598" y="143" width="24" height="20" uuid="523a1d98-119e-42e7-9403-6a04866bbcc3"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="622" y="143" width="100" height="20" uuid="5e2267ae-8639-4136-bc49-c4f58b766d5f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="106" splitType="Stretch">
+			<textField>
+				<reportElement x="628" y="85" width="77" height="20" uuid="627ecd28-d76c-443f-ac7e-2e5ba2071f7a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{petugas_nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="639" y="65" width="66" height="20" uuid="622e0979-d662-493d-a6d2-6ce23fb21856"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Petugas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="562" y="0" width="66" height="20" uuid="defdd856-4911-4a31-8f67-4f39a3deb257"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cileungsi,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="718" y="85" width="21" height="20" uuid="429f6953-33e1-4809-a597-aceae36a41d7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="607" y="85" width="21" height="20" uuid="a990d44a-05ea-4cf4-8a00-31b8d8ada1e8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<textField pattern="EEEEE, dd MMMMM yyyy">
+				<reportElement x="628" y="0" width="121" height="20" uuid="978e58de-0837-4a96-8b78-a0fe334b54e1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

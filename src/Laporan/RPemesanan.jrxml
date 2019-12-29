@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="811" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="07a43a73-d138-40d6-8c75-75da35eb2b28">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="pbulan" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ptahun" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="futsal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     booking.`nbooking` AS booking_nbooking,
+     booking.`tgl` AS booking_tgl,
+     booking.`namateam` AS booking_namateam,
+     booking.`namasewa` AS booking_namasewa,
+     booking.`namalpg` AS booking_namalpg,
+     booking.`harga` AS booking_harga,
+     booking.`dp` AS booking_dp,
+     booking.`jammsk` AS booking_jammsk,
+     booking.`jamkluar` AS booking_jamkluar,
+     booking.`status` AS booking_status,
+     pimpinan.`nama` AS pimpinan_nama
+FROM
+     `booking` booking,
+     `pimpinan` pimpinan
+WHERE
+     tgl LIKE '%$P!{pbulan}%'
+     and tgl LIKE '%$P!{ptahun}%']]>
+	</queryString>
+	<field name="booking_nbooking" class="java.lang.String"/>
+	<field name="booking_tgl" class="java.lang.String"/>
+	<field name="booking_namateam" class="java.lang.String"/>
+	<field name="booking_namasewa" class="java.lang.String"/>
+	<field name="booking_namalpg" class="java.lang.String"/>
+	<field name="booking_harga" class="java.lang.String"/>
+	<field name="booking_dp" class="java.lang.String"/>
+	<field name="booking_jammsk" class="java.lang.String"/>
+	<field name="booking_jamkluar" class="java.lang.String"/>
+	<field name="booking_status" class="java.lang.String"/>
+	<field name="pimpinan_nama" class="java.lang.String"/>
+	<group name="booking_nbooking">
+		<groupExpression><![CDATA[$F{booking_nbooking}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="4f276735-3b1d-4ce5-8551-796324c39e74"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="101" y="0" width="596" height="24" forecolor="#FFFFFF" uuid="791cfda1-acbf-491a-8c51-3d1469ed34cd"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{booking_nbooking}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement style="Column header" x="2" y="0" width="99" height="24" forecolor="#FFFFFF" uuid="d01f6e67-56df-4646-97b9-55ff2b092a16"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[No. Booking]]></text>
+					</staticText>
+				</frame>
+				<rectangle>
+					<reportElement x="725" y="3" width="77" height="24" backcolor="#666666" uuid="8841e947-4a6c-48e3-929d-7e1e71cdc444"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="booking_tgl">
+		<groupExpression><![CDATA[$F{booking_tgl}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement positionType="Float" x="99" y="0" width="703" height="30" forecolor="#000000" uuid="12758756-c16d-4fce-84c5-e76ded4b5f54"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_tgl}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="100" height="30" forecolor="#000000" uuid="d51ff647-81b7-4551-9a92-a33ed2c68cd2"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Tanggal]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="d6c59bd8-1924-459a-8874-da526b3a25a4"/>
+				<staticText>
+					<reportElement x="171" y="46" width="425" height="20" forecolor="#FFFFFF" uuid="439bfc8e-fa33-4e9a-b55f-4e1745ae5d71"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Jl. Kota Taman Metropolitan No.62, Cileungsi Kidul, Cileungsi, Bogor, Jawa Barat 16820]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="438" height="66" uuid="f1edd38d-a65e-4c2d-991f-da3b5ec73f39"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Top">
+						<font size="36" isBold="false"/>
+					</textElement>
+					<text><![CDATA[METROPOLITAN FUTSAL CILEUNGSI]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="3ed8c5cc-c68d-42be-a533-4b66f7b21904"/>
+				<staticText>
+					<reportElement x="555" y="4" width="142" height="20" forecolor="#FFFFFF" uuid="ceb0d67c-e6b1-4608-8f28-c8e14bc58c06"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Laporan Pemesanan]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="721" y="7" width="82" height="92" uuid="c5679e0c-f655-4eab-8298-259c846a91ed"/>
+				<imageExpression><![CDATA[$P{futsal}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="99" height="18" forecolor="#000000" uuid="30e19c2e-7859-48e9-9301-403a29371675"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Tim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="99" y="0" width="99" height="18" forecolor="#000000" uuid="5f1cae2b-6106-4489-b6fc-0d710b4ecd67"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Penyewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="198" y="0" width="99" height="18" forecolor="#000000" uuid="2ec00fbb-1a2b-45d3-86b4-b53c00fac8b5"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Lapangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="297" y="0" width="99" height="18" forecolor="#000000" uuid="7bbc2077-38e4-4f19-9622-347c35b325eb"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="396" y="0" width="99" height="18" forecolor="#000000" uuid="0db2cf6b-ac15-4337-bc28-a1143832f5c6"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[DP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="495" y="0" width="99" height="18" forecolor="#000000" uuid="a698b61c-52a3-42ed-8ef2-291bdfcdbccd"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jam Masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="594" y="0" width="99" height="18" forecolor="#000000" uuid="b366da46-3564-427c-a8bd-122036abcc55"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jam Keluar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="693" y="0" width="99" height="18" forecolor="#000000" uuid="69f271e1-9010-476b-bdba-9e4cb3941242"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="c4ef20d1-1d02-4b8e-9fb2-c85972b8cac0"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="99" height="18" uuid="4411dc22-7dde-48dc-af43-8f908fc9a68e"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_namateam}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="99" y="0" width="99" height="18" uuid="47e8ceb2-96aa-401d-b7ab-1593cc22cbf6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_namasewa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="198" y="0" width="99" height="18" uuid="48ed7ffa-b951-42a6-b608-1e935a3f53b7"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_namalpg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="321" y="0" width="75" height="18" uuid="5b6d4b76-1fed-4b79-8db5-2c8dfdf6ae45"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_harga}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="420" y="0" width="75" height="18" uuid="e83ae970-1c25-46c9-ae97-7b90ff7b0ee5"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_dp}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="495" y="0" width="99" height="18" uuid="8fac81c4-9c1c-4657-b43c-0904e07ea14d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_jammsk}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="594" y="0" width="99" height="18" uuid="930b18d6-98bf-4a6b-a058-702c1212bf0a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_jamkluar}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="693" y="0" width="99" height="18" uuid="4ae2a550-28ac-4a5f-95b5-9d0d853d68c9"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{booking_status}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="297" y="0" width="24" height="18" uuid="036c035b-a58a-4cf1-9450-777acd7a2b6e"/>
+					<textElement>
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rp.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="396" y="0" width="24" height="18" uuid="60878e15-6b59-4d04-ad7b-3d1712aa2568"/>
+					<textElement>
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rp.]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="106" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="8058c5f9-22ee-4507-a194-29921ad61fca"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="575" y="3" width="61" height="20" uuid="5fc0c285-ff44-4162-9efa-7188ac4bf5d9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cileungsi,]]></text>
+			</staticText>
+			<textField pattern="EEEEE, dd MMMMM yyyy">
+				<reportElement x="636" y="4" width="121" height="20" uuid="1f949c13-8ace-4d87-b56c-1c69be598605"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="645" y="61" width="66" height="20" uuid="cbcd5bde-a69f-4acb-9d5b-04dcd464a19f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pimpinan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="632" y="81" width="89" height="20" uuid="c5046ede-bb81-45bb-88e4-ea0b97954fff"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimpinan_nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="723" y="81" width="21" height="20" uuid="32d46100-9773-425c-82e4-ffc185a244c0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="611" y="81" width="21" height="20" uuid="455d3a92-9150-4b0c-a51c-68597bb6dd63"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="18eb66c5-b662-4bf5-bc0f-a63472c31d29"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="35630508-9bf6-4855-9345-891588b7f941"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="30479784-3771-47a9-95b6-31b44385516e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="c74b7ffe-53de-4f43-aa76-987056750fa2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
